@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Finance</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+</head>
+
+<body>
+    <ul id="nav-mobile" class="right">
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'logout' %}">LOG OUT</a></li>
+        {% else %}
+        <li><a href="{% url 'signup' %}">SIGN UP</a></li>
+        <li><a href="{% url 'login' %}">LOG IN</a></li>
+        {% endif %}
+    </ul>
+    <main class="container">
+        {% block content %} {% endblock %}
+    </main>
+</body>
+
+</html>
