@@ -9,6 +9,7 @@ from django.http import HttpResponseRedirect
 
 from django.views.generic.edit import CreateView, DeleteView
 from .models import Habit
+from .models import User
 
 @login_required
 def home (request):
@@ -72,6 +73,11 @@ def habits_update (request, pk):
 
 #change habit to profile later****
 def profile (request):
-    return render  (request, "habits/profile.html")  
+  user = request.user
+  address = request.user.email
+
+  print(address)
+
+  return render  (request, "habits/profile.html", {"user" : user})  
 
 
