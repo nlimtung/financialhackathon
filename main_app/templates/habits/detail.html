@@ -1,28 +1,50 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Detail  Page</h1>
     <div >
 
   
-        <a href="{% url 'habit_update' habit.id %}"> <button>update </button></a>
+        <h1>{{ habit.item }}</h1>
+        <div class = "details-image">
+            <p>photoplaceholder</p>
+        </div>
 
-        <h1>habit you want to change:{{habit.habit_item}}</h1>
+
+        <table>
+            <tr>
+                <td>Currently Giving Up: </td>
+                <td>{{ habit.habit_item }}</td>
+            </tr>
+            <tr>
+                <td>Cost per Saving:</td>
+                <td>${{ habit.habit_cost }}</td>
+            </tr>
+            <tr>
+                <th>&nbsp </th>
+                <th>&nbsp </th>
+            </tr>
+            <tr>
+                {% if habit.item_cost < 0 %}
+
+                <td>item cost: </td>
+                <td>0.0 </td>
+
+            {% else %}
+                <td>item cost:</td>
+                <td>{{ habit.item_cost }}</td>
+
+            {% endif %}
+            </tr>
+        </table>
+        <ul>
+        
+
+
+     
         <ul>
 
-
-
-        {% if habit.item_cost < 0 %}
-            <li>item cost: 0.0 </li>
-            <li>purchase you want to get:{{ habit.item }}</li>
-
-        {% else %}
-            <li>item cost:{{ habit.item_cost }}</li>
-            <li>purchase you want to get:{{ habit.item }}</li>
-        {% endif %}
-
-            <li><a href="{% url 'habit_delete' habit.id %}" class="waves-effect waves-light btn-small">Delete</a></li>
-        <ul>
+        <a href="{% url 'habit_update' habit.id %}"> <button class = "btn btn-warning">I saved for this Today </button></a></br>
+        <a href="{% url 'habit_delete' habit.id %}" class="btn btn-danger">Abandon Goal</a>
     </div>
 
 {% endblock %}
