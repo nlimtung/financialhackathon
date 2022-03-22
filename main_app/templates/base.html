@@ -17,10 +17,12 @@
     <ul id="nav-mobile" class="right">
         {% if user.is_authenticated %}
         <li><a href="{% url 'logout' %}">LOG OUT</a></li>
+        <li><a href="{% url 'habit_create' %}">Create</a></li>
+        <li><a href="{% url 'index' %}">index</a></li>
         {% else %}
         <li><a href="{% url 'signup' %}">SIGN UP</a></li>
         <li><a href="{% url 'login' %}">LOG IN</a></li>
-        <li><a href="{% url 'habit_create' %}">Create</a></li>
+
 
         {% endif %}
     </ul>

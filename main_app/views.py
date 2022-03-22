@@ -31,9 +31,10 @@ class HabitCreate(CreateView):
   def form_valid(self, form):
     form.instance.user = self.request.user  
     return super().form_valid(form)
-
-  # def form_valid(self, form):
-  #   form.instance.user = self.request.user  
-  #   return super().form_valid(form)
   success_url = '/'
+
+
+def habits_index(request):
+  habits = Habit.objects.all()
+  return render(request, 'habits/index.html', { 'habits': habits })
 

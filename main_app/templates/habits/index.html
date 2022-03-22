@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+{% for habit in habits %}
+    <div >
+        <ul>
+            <li>habit you want to change:{{habit.habit_item}}</li>
+            <li>habit cost:{{ habit.habit_cost }}</li>
+            <li>purchase you want to get:{{ habit.item }}</li>
+            <li>item cost:{{ habit.item_cost }}</li>
+
+        <ul>
+      
+    </div>
+{% endfor %}
+
+{% endblock %}
