@@ -3,6 +3,10 @@
 
 <h1>Detail  Page</h1>
     <div >
+
+  
+        <a href="{% url 'habit_update' habit.id %}"> <button>update </button></a>
+
         <h1>habit you want to change:{{habit.habit_item}}</h1>
         <ul>
             <li>habit cost:{{ habit.habit_cost }}</li>
