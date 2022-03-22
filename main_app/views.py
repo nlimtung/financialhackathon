@@ -45,5 +45,28 @@ def habits_detail(request, habit_id):
   habit = Habit.objects.get(id=habit_id)
   return render(request, 'habits/detail.html', { 'habit': habit})
 
+def habits_update (request, pk):
+  purchase_query =  Habit.objects.filter(pk= pk).values('item_cost')
+  purchase_cost = (purchase_query[0]['item_cost'])
+  habit_query =  Habit.objects.filter(pk= pk).values('habit_cost')
+  habit_cost = (habit_query[0]['habit_cost'])
+  new_cost = purchase_cost - habit_cost
+
+  habit = Habit.objects.get(pk=pk)
+  habit.item_cost = new_cost
+  habit.save()
+
+  return render(request, 'habits/detail.html', { 'habit': habit})
+
+
+
+  
+  # 
+# we want to get the option by it's id 
+# 
+# we want to optain the average cost of the habit
+# we want to optain the cost of the item
+# onclick (form?) we minus the price of the habit from the price of the item
+# we want to save the new cost of the item
 
 
