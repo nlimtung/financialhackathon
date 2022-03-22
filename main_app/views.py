@@ -3,13 +3,14 @@ from django.http import HttpResponse
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 from django.views.generic.edit import CreateView, DeleteView
 from .models import Habit
 
-
+@login_required
 def home (request):
-    return render  (request, "home.html") 
+    return render  (request, 'habits/index.html') 
 
 def signup(request):
   error_message = ''
@@ -37,7 +38,7 @@ class HabitDelete(LoginRequiredMixin, DeleteView):
   model = Habit
   success_url='/habits/index/'
 
-def habits_index(request):
+def habits_index(LoginRequiredMixin, request):
   habits = Habit.objects.all()
   return render(request, 'habits/index.html', { 'habits': habits })
 
