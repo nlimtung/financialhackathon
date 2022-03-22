@@ -1,27 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class = "index-page">
+    <h1>Goal</h1>
+    {% for habit in habits %}
+    <div class = "index-card">
+            <a href="{% url 'detail' habit.id %}">
 
-<h1>Goals</h1>
-{% for habit in habits %}
-<div class = index-card>
-        <a href="{% url 'detail' habit.id %}">
+        <div class=" index-photo">
+            <p>photo placeholder</p>
+        </div>
+        <div class= "index-text">
+            <h3>{{ habit.item }}</h3>
+            <li>${{ habit.item_cost }}</li>
+            <li>Until Goal</li>
+        </div>
 
-    <div class=" index-photo">
+        </a>
 
-    </div>
-    <div>
-        <h2>{{ habit.item }}</h2>
-        <li>habit $:{{ habit.habit_cost }}</li>
-        <li>item cost:{{ habit.item_cost }}</li>
-    </div>
-    <a href="{% url 'detail' habit.id %}">
-        <h2>{{ habit.item }}</h2>
-        <li>habit $:{{ habit.habit_cost }}</li>
-        <li>item cost:{{ habit.item_cost }}</li>
-    </a>
+    </div>    
+    {% endfor %}
 
 </div>
-{% endfor %}
+
+<button class = "yellow-button"><a href="{% url 'habit_create' %}">Add New Goal</a></button>
+
+
+
 
 
 

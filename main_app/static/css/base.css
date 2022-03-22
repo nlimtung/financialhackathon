@@ -1,3 +1,9 @@
+h1 {
+    text-align: center;
+    position: sticky;
+
+}
+
 .login-page form ul {
     display:none;
 
@@ -44,5 +50,74 @@
 .login-page label{
     margin: 0;
 }
+
+
+.index-card {
+    display: flex;
+    flex-direction: column; 
+    -ms-box-orient: horizontal;
+
+    /* background-color: tomato; */
+    margin:6px;
+
+}
+.index-text {
+    /* background-color: tomato;   */
+    float: right;
+    width:68%;
+    height:12vh;
+    border-radius: 5px;
+    text-decoration: none;
+
+
+}
+
+.index-photo {
+    float:left;
+    width:29%;
+    background-color: tomato;  
+    height:12vh;
+    border-radius: 5px;
+
+}
+.index-text {
+    color: black
+
+}
+
+.index-text li {
+    list-style-type: none;
+    color: black;
+    padding:0px;
+    margin:0px;
+    font-size: 2vh;
+
+}
+
+.index-text h3{
+    margin:0px;
+    position:sticky;
+    padding:0px;
+
+}
+
+.yellow-button{
+  
+
+    background-color: #F5CA49;
+    border-radius: 5px;
+    color: white;
+    border-style: none;
+    height: 4vh;
+    margin-left:outp;
+
+
+}
+.yellow-button a{
+    color: white;
+    padding: 10px
+
+}
+
 
 
