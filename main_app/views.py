@@ -2,9 +2,9 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, DeleteView
 from .models import Habit
 
 
@@ -33,8 +33,13 @@ class HabitCreate(CreateView):
     return super().form_valid(form)
   success_url = '/'
 
+class HabitDelete(LoginRequiredMixin, DeleteView):
+  model = Habit
+  success_url='/habits/index/'
 
 def habits_index(request):
   habits = Habit.objects.all()
   return render(request, 'habits/index.html', { 'habits': habits })
+
+
 
