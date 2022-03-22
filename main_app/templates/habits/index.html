@@ -9,6 +9,7 @@
             <li>habit cost:{{ habit.habit_cost }}</li>
             <li>purchase you want to get:{{ habit.item }}</li>
             <li>item cost:{{ habit.item_cost }}</li>
+            <li><a href="{% url 'habit_delete' habit.id %}" class="waves-effect waves-light btn-small">Delete</a></li>
 
         <ul>
       
