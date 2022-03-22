@@ -4,13 +4,15 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 
 from django.views.generic.edit import CreateView, DeleteView
 from .models import Habit
 
 @login_required
 def home (request):
-    return render  (request, 'habits/index.html') 
+    return redirect  ('habits/index') 
 
 def signup(request):
   error_message = ''
@@ -19,7 +21,7 @@ def signup(request):
     if form.is_valid():
       user = form.save()
       login(request, user)
-      return redirect('home')
+      return redirect('habit_index')
     else:
       error_message = 'Invalid sign up - try again'
   form = UserCreationForm()
@@ -38,7 +40,8 @@ class HabitDelete(LoginRequiredMixin, DeleteView):
   model = Habit
   success_url='/habits/index/'
 
-def habits_index(LoginRequiredMixin, request):
+@login_required
+def habits_index(request):
   habits = Habit.objects.all()
   return render(request, 'habits/index.html', { 'habits': habits })
 
@@ -51,23 +54,14 @@ def habits_update (request, pk):
   purchase_cost = (purchase_query[0]['item_cost'])
   habit_query =  Habit.objects.filter(pk= pk).values('habit_cost')
   habit_cost = (habit_query[0]['habit_cost'])
-  new_cost = purchase_cost - habit_cost
 
+  new_cost = purchase_cost - habit_cost
   habit = Habit.objects.get(pk=pk)
   habit.item_cost = new_cost
   habit.save()
 
-  return render(request, 'habits/detail.html', { 'habit': habit})
+  return HttpResponseRedirect(reverse('detail', args=[str(pk)]))
 
 
-
-  
-  # 
-# we want to get the option by it's id 
-# 
-# we want to optain the average cost of the habit
-# we want to optain the cost of the item
-# onclick (form?) we minus the price of the habit from the price of the item
-# we want to save the new cost of the item
-
+  # return render(request, 'habits/detail.html', { 'habit': habit})
 
