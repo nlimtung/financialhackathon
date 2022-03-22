@@ -31,7 +31,7 @@ class HabitCreate(CreateView):
   def form_valid(self, form):
     form.instance.user = self.request.user  
     return super().form_valid(form)
-  success_url = '/'
+  success_url = '/habits/index'
 
 class HabitDelete(LoginRequiredMixin, DeleteView):
   model = Habit
@@ -40,6 +40,10 @@ class HabitDelete(LoginRequiredMixin, DeleteView):
 def habits_index(request):
   habits = Habit.objects.all()
   return render(request, 'habits/index.html', { 'habits': habits })
+
+def habits_detail(request, habit_id):
+  habit = Habit.objects.get(id=habit_id)
+  return render(request, 'habits/detail.html', { 'habit': habit})
 
 
 
