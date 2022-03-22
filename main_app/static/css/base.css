@@ -4,6 +4,11 @@ h1 {
 
 }
 
+li {
+    list-style-type: none;
+
+}
+
 .login-page form ul {
     display:none;
 
@@ -69,7 +74,6 @@ h1 {
     border-radius: 5px;
     text-decoration: none;
 
-
 }
 
 .index-photo {
@@ -101,22 +105,29 @@ h1 {
 
 }
 
-.yellow-button{
-  
-
+/* .yellow-button{
     background-color: #F5CA49;
     border-radius: 5px;
     color: white;
     border-style: none;
     height: 4vh;
     margin-left:outp;
-
-
 }
+
 .yellow-button a{
     color: white;
     padding: 10px
 
+} */
+
+.details-image  {
+    margin:auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: tomato;
+    height:200px;
+    width:95%
 }
 
 
