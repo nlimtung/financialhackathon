@@ -10,7 +10,7 @@ from .models import Habit
 
 @login_required
 def home (request):
-    return render  (request, 'habits/index.html') 
+    return redirect  ('habits/index') 
 
 def signup(request):
   error_message = ''
@@ -19,7 +19,7 @@ def signup(request):
     if form.is_valid():
       user = form.save()
       login(request, user)
-      return redirect('home')
+      return redirect('habit_index')
     else:
       error_message = 'Invalid sign up - try again'
   form = UserCreationForm()
@@ -38,7 +38,8 @@ class HabitDelete(LoginRequiredMixin, DeleteView):
   model = Habit
   success_url='/habits/index/'
 
-def habits_index(LoginRequiredMixin, request):
+@login_required
+def habits_index(request):
   habits = Habit.objects.all()
   return render(request, 'habits/index.html', { 'habits': habits })
 
