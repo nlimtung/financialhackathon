@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Profile</h1>
+    {% if user.is_authenticated %}
+        <li><a href="{% url 'logout' %}">LOG OUT</a></li>
+    {% endif %}
+    </ul>
+
+
+
+
+
+{% endblock %}
