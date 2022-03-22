@@ -10,8 +10,7 @@ class Habit (models.Model):
     item_cost = models.FloatField("cost")
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
-        purchasecost = str(item_cost)
-        return self.item_cost
+        return self.item
     def get_absolute_url(self):
         return reverse('detail', kwargs={'habit_id': self.id})
 
