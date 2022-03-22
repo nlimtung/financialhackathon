@@ -131,4 +131,11 @@ li {
 }
 
 
+nav{
+    border-top: 2px solid black;
+}
+
+main{
+    margin-bottom: 80px;
+}
 

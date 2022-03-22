@@ -68,6 +68,10 @@ def habits_update (request, pk):
 
   return HttpResponseRedirect(reverse('detail', args=[str(pk)]))
 
-
   # return render(request, 'habits/detail.html', { 'habit': habit})
+
+#change habit to profile later****
+def profile (request):
+    return render  (request, "habits/profile.html")  
+
 
