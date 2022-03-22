@@ -1,17 +1,28 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>All Goals</h1>
+<h1>Goals</h1>
 {% for habit in habits %}
-<h2>habit you want to change:{{habit.habit_item}}</h2>
-<a href="{% url 'detail' habit.id %}">Details Page</a>
-    <div >
-        <ul>
-            <li>habit cost:{{ habit.habit_cost }}</li>
-            <li>purchase you want to get:{{ habit.item }}</li>
-            <li>item cost:{{ habit.item_cost }}</li>
-        <ul>
+<div class = index-card>
+        <a href="{% url 'detail' habit.id %}">
+
+    <div class=" index-photo">
+
     </div>
+    <div>
+        <h2>{{ habit.item }}</h2>
+        <li>habit $:{{ habit.habit_cost }}</li>
+        <li>item cost:{{ habit.item_cost }}</li>
+    </div>
+    <a href="{% url 'detail' habit.id %}">
+        <h2>{{ habit.item }}</h2>
+        <li>habit $:{{ habit.habit_cost }}</li>
+        <li>item cost:{{ habit.item_cost }}</li>
+    </a>
+
+</div>
 {% endfor %}
+
+
 
 {% endblock %}

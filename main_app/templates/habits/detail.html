@@ -13,7 +13,8 @@
 
 
         {% if habit.item_cost < 0 %}
-            <li>item cost:  0 </li>
+            <li>item cost: 0.0 </li>
+            <li>purchase you want to get:{{ habit.item }}</li>
 
         {% else %}
             <li>item cost:{{ habit.item_cost }}</li>
