@@ -126,7 +126,7 @@ def habits_update (request, pk):
   
   # 3 quarter badge
   if badgepercent <=0.75:
-    habit.three_quarter_goal = True
+    habit.quarter_goal = True
     habit.save()
 
   # half badge
@@ -135,7 +135,7 @@ def habits_update (request, pk):
     habit.save()
   # quarter mark
   if badgepercent <=0.25:
-    habit.quarter_goal = True
+    habit.three_quarter_goal = True
     habit.save()
   return HttpResponseRedirect(reverse('detail', args=[str(pk)]), {"random_message":random_message})
 
