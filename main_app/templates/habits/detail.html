@@ -1,17 +1,46 @@
+
 {% extends 'base.html' %}
 {% block content %}
+{% load mathfilters %}
+
 
     <div class = 'detail'>
 
-  
         <h1>{{ habit.item }}</h1>
         <div class = "details-image" style="background-image: url({{habit.goal_image.url}})"></div>
+        
+        <!-- 100% badge -->
+        {% if  habit.completed_goal == True %}
+            <div class = "completebadge"></div>
+        {% endif %}
 
+    <div id="allsmallbadges">
+        <!-- 25% -->
+        {% if  habit.quarter_goal == True %}
+            <div id="smallbadges"class = "quarter_badge"></div>
+        {% endif %}
+        
+        <!-- 50 -->
+        {% if  habit.half_goal == True %}
+            <div id="smallbadges"class = "half_badge"></div>
+        {% endif %}
+
+        <!-- 75 -->
+        {% if  habit.three_quarter_goal == True %}
+            <div id="smallbadges"class = "three_quarter_badge"></div>
+        {% endif %}
+    </div>
+
+   
+
+
+    
 
         <table>
             <tr>
                 <td>Total amount: </td>
                 <td>${{ habit.initial_item_cost}}</td>
+                <p>{{habit.random_message}}</p>
             </tr>
             <tr>
                 <th>&nbsp </th>
@@ -32,12 +61,12 @@
             <tr>
                 {% if habit.item_cost < 0 %}
 
-                <td>item cost: </td>
-                <td>0.0 </td>
+                <td>Amount Remaining: </td>
+                <td>$0.0 </td>
 
             {% else %}
-                <td>item cost:</td>
-                <td>{{ habit.item_cost }}</td>
+                <td>Amount Remaining:</td>
+                <td>${{ habit.item_cost }}</td>
 
             {% endif %}
             </tr>
@@ -47,5 +76,8 @@
         <a href="{% url 'habit_update' habit.id %}"> <button class = "btn btn-warning">I saved for this Today </button></a></br>
         <a href="{% url 'habit_delete' habit.id %}" class="btn btn-danger">Abandon Goal</a>
     </div>
+
+
+
 
 {% endblock %}

@@ -8,10 +8,14 @@ from django.urls import reverse
 from django.http import HttpResponseRedirect
 
 from django.views.generic.edit import CreateView, DeleteView
+
+
 from .models import Habit
 from .models import User
 import uuid
 import boto3
+import random
+
 S3_BASE_URL = 'http://s3.ca-central-1.amazonaws.com/'
 BUCKET = 'businesscollector'
 
@@ -33,7 +37,7 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
-class HabitCreate(CreateView):
+class HabitCreate(LoginRequiredMixin, CreateView):
   model = Habit
   fields = ['habit_item', 'habit_cost', 'item', 'item_cost', 'goal_image']
   def form_valid(self, form):
@@ -48,14 +52,56 @@ class HabitDelete(LoginRequiredMixin, DeleteView):
 
 @login_required
 def habits_index(request):
-  habits = Habit.objects.filter( user = request.user)
+  habits = Habit.objects.filter( user = request.user).filter(completed_goal=False)
   return render(request, 'habits/index.html', { 'habits': habits })
 
+@login_required
 def habits_detail(request, habit_id):
   habit = Habit.objects.get(id=habit_id)
   return render(request, 'habits/detail.html', { 'habit': habit})
 
+@login_required
 def habits_update (request, pk):
+
+
+  messages=['Be kind to yourself.',
+    'You can do hard things.',
+    'Remember your why.',
+    'You’re doing exactly what you should be doing. Hang in there.',
+    'A journey starts with one step.',
+    'Don’t let how you feel make you forget what you deserve.',
+    '“It always seems impossible until it is done.” — Nelson Mandela',
+    'Just wanted to send you a smile today. :)',
+    'You’re being so strong—and patient. Keep the faith. Things are going to start looking up soon.',
+    'Make today matter!',
+    'You should be so proud of yourself.',
+    'It may not be easy, but it will be worth it!',
+    'I can’t wait to see what you do next.',
+    'Success doesn’t come from what you do occasionally. It comes from what you do consistently.',
+    'When the world says, “Give up,” Hope whispers, “Try it one more time.”',
+    'Every day may not be a good day, but there is something good in every day.',
+    'Today’s a good day to have a great day.',
+    'Today will never come again. Look forward to tomorrow.',
+    'Your speed doesn’t matter. Forward is forward.',
+    'A positive mind finds opportunity in everything.',
+    'You are stronger than you think you are.',
+    'Don’t forget to be awesome.',
+    'Progress, not perfection.',
+    'The best view comes after the hardest climb.',
+    'You are capable of more than you know.',
+    'If you never try, you’ll never know.',
+    'Don’t try to be perfect. Just try to be better than you were yesterday.',
+    'This totally sucks, but you totally don’t suck!',
+    'I believe in you! And unicorns. But mostly you.',
+    'If it was easy, everyone would do it.',
+    'Small progress is still progress.',
+    'Remember why you started.',
+    'Keep going until you are proud.',
+    'Be positive, patient, and persistent.',
+    '“Don’t let your dreams be dreams.” — Jack Johnson']
+
+
+
   purchase_query =  Habit.objects.filter(pk= pk).values('item_cost')
   purchase_cost = (purchase_query[0]['item_cost'])
   habit_query =  Habit.objects.filter(pk= pk).values('habit_cost')
@@ -63,29 +109,43 @@ def habits_update (request, pk):
 
   new_cost = purchase_cost - habit_cost
   habit = Habit.objects.get(pk=pk)
+  random_message = (random.choice(messages))
+  print(random_message)
 
+  badgepercent =  new_cost/habit.initial_item_cost
+    
   if new_cost <= 0:
     habit.item_cost = 0
     habit.completed_goal = True
     habit.save()
   else:
     habit.item_cost = new_cost
+    habit.random_message = random_message
+
     habit.save()
- 
+  
+  # 3 quarter badge
+  if badgepercent <=0.75:
+    habit.three_quarter_goal = True
+    habit.save()
 
-  return HttpResponseRedirect(reverse('detail', args=[str(pk)]))
+  # half badge
+  if badgepercent <=0.5:
+    habit.half_goal = True
+    habit.save()
+  # quarter mark
+  if badgepercent <=0.25:
+    habit.quarter_goal = True
+    habit.save()
+  return HttpResponseRedirect(reverse('detail', args=[str(pk)]), {"random_message":random_message})
 
-  # return render(request, 'habits/detail.html', { 'habit': habit})
-
-#change habit to profile later****
+@login_required
 def profile (request):
   user = request.user
   address = request.user.email
-
-  
-
   return render  (request, "habits/profile.html", {"user" : user})  
 
+@login_required
 def completed(request):
   completed_habits = Habit.objects.filter( user = request.user).filter(completed_goal=True)
   return render(request, 'habits/completed.html', { 'completed_habits': completed_habits})

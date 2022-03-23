@@ -1,23 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class = "index-page">
-    <h1>Goal</h1>
+    <h1>My Goals</h1>
     {% for habit in habits %}
     <div class = "index-card">
             <a href="{% url 'detail' habit.id %}">
-
         <div class=" index-photo"style="background-image: url({{habit.goal_image.url}})"> </div>
         <div class= "index-text">
             <h3>{{ habit.item }}</h3>
             <li>${{ habit.item_cost }}</li>
             <li>Until Goal</li>
         </div>
-
         </a>
-
     </div>    
     {% endfor %}
-
 </div>
 
 <button class = "btn btn-warning"><a href="{% url 'habit_create' %}">Add New Goal</a></button>

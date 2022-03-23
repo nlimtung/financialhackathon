@@ -1,3 +1,4 @@
+from unicodedata import decimal
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
@@ -9,14 +10,25 @@ class Habit (models.Model):
     item = models.CharField(verbose_name=u"NAME", max_length = 50)
     item_cost = models.FloatField("ITEM COST")
     initial_item_cost = models.FloatField("initial cost", null=True)
+
+    random_message = models.CharField(max_length = 220)
+
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    
     completed_goal = models.BooleanField(default= False)
+    half_goal =  models.BooleanField(default= False)
+    quarter_goal = models.BooleanField(default= False)
+    three_quarter_goal = models.BooleanField(default= False)
     goal_image = models.ImageField(upload_to='businesscollector/',default='default.png',null=True)
 
     def __str__(self):
         return self.item
     def get_absolute_url(self):
         return reverse('detail', kwargs={'habit_id': self.id})
+
+
+
+
 
 
 
