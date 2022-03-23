@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<h1>New Goal</h1>
+<h5>Please Enter Your Goal and Price</h5>
   <form action="" method="post">
     {% csrf_token %}
     <table>
       {{ form.as_table }}
     </table>
-    <input type="submit" value="Submit!" class="btn">
+    <input type="submit" value="CONFIRM" class="btn">
   </form>
 {% endblock %}
