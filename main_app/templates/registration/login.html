@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <title>Financial</title>
+</head>
+<body>
+  <div class = "login-page">
+    <h1>The Goal Getter</h1>
+    <h2>Welcome!</h2>
+    
+      <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <input type="submit" class="btn"  value="Login">
+        <p>Don't have an account? <a href="{% url 'signup' %}">Sign Up</a></p>
+        <input type="hidden" name="next" value="{{ next }}">
+      </form>
+    </div>
+</body>
+</html>
+
+
