@@ -11,6 +11,7 @@ class Habit (models.Model):
     initial_item_cost = models.FloatField("initial cost", null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     completed_goal = models.BooleanField(default= False)
+    goal_image = models.ImageField(upload_to='businesscollector/',default='default.png',null=True)
 
     def __str__(self):
         return self.item

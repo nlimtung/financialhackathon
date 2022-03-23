@@ -11,6 +11,12 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+import environ
+
+
+environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -120,7 +126,21 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_S3_ACCESS_KEY_ID=os.environ['AWS_S3_ACCESS_KEY_ID']
+AWS_S3_SECRET_ACCESS_KEY=os.environ['AWS_S3_SECRET_ACCESS_KEY']
+AWS_STORAGE_BUCKET_NAME =os.environ['AWS_STORAGE_BUCKET_NAME']
+
+
+AWS_S3_REGION_NAME = "ca-central-1"
+AWS_S3_SIGNATURE_VERSION = "s3v4"
+

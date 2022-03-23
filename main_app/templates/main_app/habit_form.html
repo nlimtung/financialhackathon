@@ -3,7 +3,7 @@
 {% block content %}
 <h1>New Goal</h1>
 <h5>Please Enter Your Goal and Price</h5>
-  <form action="" method="post">
+  <form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <table>
       {{ form.as_table }}

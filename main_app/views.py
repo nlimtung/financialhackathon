@@ -10,6 +10,10 @@ from django.http import HttpResponseRedirect
 from django.views.generic.edit import CreateView, DeleteView
 from .models import Habit
 from .models import User
+import uuid
+import boto3
+S3_BASE_URL = 'http://s3.ca-central-1.amazonaws.com/'
+BUCKET = 'businesscollector'
 
 @login_required
 def home (request):
@@ -31,7 +35,7 @@ def signup(request):
 
 class HabitCreate(CreateView):
   model = Habit
-  fields = ['habit_item', 'habit_cost', 'item', 'item_cost']
+  fields = ['habit_item', 'habit_cost', 'item', 'item_cost', 'goal_image']
   def form_valid(self, form):
     form.instance.user = self.request.user  
     form.instance.initial_item_cost = form.instance.item_cost
