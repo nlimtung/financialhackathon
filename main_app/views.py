@@ -59,10 +59,11 @@ def habits_update (request, pk):
 
   new_cost = purchase_cost - habit_cost
   habit = Habit.objects.get(pk=pk)
-  if habit.item_cost <= 0:
-    habit.item_cost == 0
-    habit.save()
 
+  if new_cost < 0:
+    habit.item_cost = 0
+    habit.completed_goal = True
+    habit.save()
   else:
     habit.item_cost = new_cost
     habit.save()
@@ -77,8 +78,14 @@ def profile (request):
   user = request.user
   address = request.user.email
 
-  print(address)
+  
 
   return render  (request, "habits/profile.html", {"user" : user})  
+
+def completed(request):
+  completed_habits = Habit.objects.filter(completed_goal=True)
+  return render(request, 'habits/completed.html', { 'completed_habits': completed_habits})
+
+
 
 
