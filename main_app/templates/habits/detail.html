@@ -72,12 +72,12 @@
             <tr>
                 {% if habit.item_cost < 0 %}
 
-                <td>item cost: </td>
-                <td>0.0 </td>
+                <td>Amount Remaining: </td>
+                <td>$0.0 </td>
 
             {% else %}
-                <td>item cost:</td>
-                <td>{{ habit.item_cost }}</td>
+                <td>Amount Remaining:</td>
+                <td>${{ habit.item_cost }}</td>
 
             {% endif %}
             </tr>
