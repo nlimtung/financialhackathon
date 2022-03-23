@@ -8,6 +8,7 @@ class Habit (models.Model):
     habit_cost = models.FloatField("habit cost")
     item = models.CharField(max_length = 50)
     item_cost = models.FloatField("cost")
+    initial_item_cost = models.FloatField("initial cost", null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
         return self.item
