@@ -67,8 +67,14 @@ def habits_update (request, pk):
   habit = Habit.objects.get(pk=pk)
 
   badgepercent =  new_cost/habit.initial_item_cost
-  
+    
+  # completed 
 # completed 
+  # completed 
+# completed 
+  # completed 
+# completed 
+  # completed 
   if new_cost <= 0:
     habit.item_cost = 0
     habit.completed_goal = True
@@ -90,13 +96,6 @@ def habits_update (request, pk):
   if badgepercent <=0.25:
     habit.quarter_goal = True
     habit.save()
-
-
-  
-
-  
-
-  
   return HttpResponseRedirect(reverse('detail', args=[str(pk)]))
 
 @login_required
