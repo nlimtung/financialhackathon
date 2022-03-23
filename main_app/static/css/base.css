@@ -85,7 +85,7 @@ li {
 .index-photo {
     float:left;
     width:29%;
-    background-color: tomato;  
+    background-color: white;
     height:12vh;
     border-radius: 5px;
     background-size: cover;
@@ -133,7 +133,7 @@ li {
     display: flex;
     justify-content: center;
     text-align: center;
-    background-color: tomato;
+    background-color: white;
     height:200px;
     width:95%;
     background-size: cover;
@@ -157,7 +157,7 @@ main{
 
 
 .profile-image {
-    background-color: tomato;
+    background-color: white;
     height: 100px;
     border-radius: 100%;
     width:100px;
@@ -175,13 +175,41 @@ main{
 
 
 .completebadge {
-    width:100px;
-    height: 100px;
-    background-color: tomato;
+    width:120px;
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    background-image: url('images/complete.png');
+margin:auto;
 }
 
-.quarter_badge {
-    background-image: url ('images/quarterbadge.png');
-    height:88px;
-    width: 88px
+#allsmallbadges {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
 }
+
+#smallbadges {
+    height:88px;
+    width: 88px;
+    background-size: cover;
+    background-position: center;
+} 
+
+.quarter_badge {
+    background-image: url('images/quarterbadge.png');
+    grid-column: 1/2;
+
+
+}
+
+.half_badge {
+    background-image: url('images/halfbadge.png');
+    grid-column: 2/3;
+}
+.three_quarter_badge {
+    background-image: url('images/threequarterbadge.png');
+    grid-column: 3/4;
+
+}
+
