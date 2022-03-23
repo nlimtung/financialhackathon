@@ -10,6 +10,8 @@ class Habit (models.Model):
     item_cost = models.FloatField("cost")
     initial_item_cost = models.FloatField("initial cost", null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    completed_goal = models.BooleanField(default= False)
+
     def __str__(self):
         return self.item
     def get_absolute_url(self):
