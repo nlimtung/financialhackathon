@@ -1,6 +1,5 @@
 main {
     font-family: 'Fira Sans Condensed', sans-serif;
-
 }
 
 h1 {
@@ -118,20 +117,6 @@ li {
 
 }
 
-/* .yellow-button{
-    background-color: #F5CA49;
-    border-radius: 5px;
-    color: white;
-    border-style: none;
-    height: 4vh;
-    margin-left:outp;
-}
-
-.yellow-button a{
-    color: white;
-    padding: 10px
-
-} */
 
 .details-image  {
     margin:auto;
@@ -179,14 +164,14 @@ main{
 
 }
 
-
+/* BADGES ON DETAIL PAGE */
 .completebadge {
     width:120px;
     height: 120px;
     background-size: cover;
     background-position: center;
     background-image: url('images/complete.png');
-margin:auto;
+    margin:auto;
 }
 
 #allsmallbadges {
@@ -218,3 +203,25 @@ margin:auto;
 
 }
 
+/* ACHIEVEMENT PAGE */
+.completed-card {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1.5fr;
+    margin-bottom: 20px;
+}
+
+.completed-badge {
+    background-image: url('images/complete.png');
+    background-size: cover;
+    background-position: center;
+    grid-column: 2/3;
+    width: 75px;
+    height: 75px;
+}
+
+.completed-image {
+    background-size: cover;
+    grid-column: 1/2;
+    width: 75px;
+    height: 75px;
+}

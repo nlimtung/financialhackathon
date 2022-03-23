@@ -6,12 +6,17 @@
    
 
     
-        <div>
-            <h3>{{ completed.item }}</h3>
+        <div class = "completed-card">
+            <div class = "completed-image"style="background-image: url({{completed.goal_image.url}})"></div>
+            <div class = "completed-badge"></div>
+            <div class = "completed-text">
+                <li>{{ completed.item }}</li>
+                <li>${{completed.initial_item_cost}}</li>
+                
+            </div>
 
-            <div class = "index-card">
                    
-        
+<!--         
                 <div class=" index-photo"style="background-image: url({{habit.goal_image.url}})"> </div>
                 <div class= "index-text">
                     <li>${{ completed.item_cost }}</li>
@@ -20,7 +25,7 @@
         
                 </a>
         
-            </div>    
+            </div>     -->
      
         </div>
 
