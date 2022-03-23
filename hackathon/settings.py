@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-youbql$2(ouaktreb=&cuk5a!c_75zw5@gszu8p&!l1s06s&)3'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -82,12 +82,30 @@ WSGI_APPLICATION = 'hackathon.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
+if os.environ['DJANGO_ENV'] == 'production':
+    DATABASES = {
+        'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'hackathon',
-    }
-}
+    }} 
+else:
+    DATABASES = {
+        'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'hackathon',
+        'USER': os.environ['USER'],
+        'PASSWORD': os.environ['PASSWORD'],
+        'HOST': os.environ['HOST'],
+        'PORT': os.environ['PORT'],
+    }}
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'hackathon',
+#     }
+# }
 
 
 # Password validation
