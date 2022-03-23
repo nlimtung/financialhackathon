@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h1>DELETE GOAL</h1>
+  <h1>Abandon Goal</h1>
 
-  <h4 class="header-text">Are you sure you want to delete? <span class="black-text"></span></h4>
+  <h4 class="header-text">Are you sure you want to abandon goal? This action cannot be undone <span class="black-text"></span></h4>
+  <br>
+  <h4 class="header-text">Remember to move your savings to another goal! <span class="black-text"></span></h4>
 
   <form action="" method="POST">
     {% csrf_token %}
-    <input type="submit" value="Yes - Delete!" class="btn">
+    <input type="submit" value="Yes I want to abandon my goal" class="btn btn-danger">
     <a href="{% url 'index' %}">Cancel</a>
   </form>
 {% endblock %}
