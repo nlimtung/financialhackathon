@@ -60,7 +60,7 @@ def habits_update (request, pk):
   new_cost = purchase_cost - habit_cost
   habit = Habit.objects.get(pk=pk)
 
-  if new_cost < 0:
+  if new_cost <= 0:
     habit.item_cost = 0
     habit.completed_goal = True
     habit.save()
