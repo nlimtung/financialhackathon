@@ -88,6 +88,8 @@ li {
     background-color: tomato;  
     height:12vh;
     border-radius: 5px;
+    background-size: cover;
+    background-position: center;
 
 }
 .index-text {
@@ -133,7 +135,9 @@ li {
     text-align: center;
     background-color: tomato;
     height:200px;
-    width:95%
+    width:95%;
+    background-size: cover;
+    background-position: center;
 }
 
 
@@ -152,6 +156,7 @@ main{
     border-radius: 100%;
     width:100px;
     margin:auto;
+    
 }
 
 
