@@ -1,13 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class = "index-page">
-    <h1>Goal</h1>
+    <h1>Achievements</h1>
     {% for completed in completed_habits %}
    
 
     
         <div>
             <h3>{{ completed.item }}</h3>
+
+            <div class = "index-card">
+                   
+        
+                <div class=" index-photo"style="background-image: url({{habit.goal_image.url}})"> </div>
+                <div class= "index-text">
+                    <li>${{ completed.item_cost }}</li>
+                    
+                </div>
+        
+                </a>
+        
+            </div>    
+     
         </div>
 
      

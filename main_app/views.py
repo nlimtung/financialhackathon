@@ -33,7 +33,7 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
-class HabitCreate(CreateView):
+class HabitCreate(LoginRequiredMixin, CreateView):
   model = Habit
   fields = ['habit_item', 'habit_cost', 'item', 'item_cost', 'goal_image']
   def form_valid(self, form):
@@ -48,13 +48,15 @@ class HabitDelete(LoginRequiredMixin, DeleteView):
 
 @login_required
 def habits_index(request):
-  habits = Habit.objects.filter( user = request.user)
+  habits = Habit.objects.filter( user = request.user).filter(completed_goal=False)
   return render(request, 'habits/index.html', { 'habits': habits })
 
+@login_required
 def habits_detail(request, habit_id):
   habit = Habit.objects.get(id=habit_id)
   return render(request, 'habits/detail.html', { 'habit': habit})
 
+@login_required
 def habits_update (request, pk):
   purchase_query =  Habit.objects.filter(pk= pk).values('item_cost')
   purchase_cost = (purchase_query[0]['item_cost'])
@@ -81,31 +83,24 @@ def habits_update (request, pk):
     habit.three_quarter_goal = True
     habit.save()
   
+  # completed 
+    if new_cost <= 0:
+      habit.item_cost = 0
+      habit.completed_goal = True
+      habit.save()
+    else:
+      habit.item_cost = new_cost
+      habit.save()
   
-
-
-  
-# completed 
-  if new_cost <= 0:
-    habit.item_cost = 0
-    habit.completed_goal = True
-    habit.save()
-  else:
-    habit.item_cost = new_cost
-    habit.save()
- 
-
   return HttpResponseRedirect(reverse('detail', args=[str(pk)]))
 
-
+@login_required
 def profile (request):
   user = request.user
   address = request.user.email
-
-  
-
   return render  (request, "habits/profile.html", {"user" : user})  
 
+@login_required
 def completed(request):
   completed_habits = Habit.objects.filter( user = request.user).filter(completed_goal=True)
   return render(request, 'habits/completed.html', { 'completed_habits': completed_habits})
