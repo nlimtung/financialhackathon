@@ -1,5 +1,8 @@
+
 {% extends 'base.html' %}
 {% block content %}
+{% load mathfilters %}
+
 
     <div class = 'detail'>
 
@@ -8,13 +11,40 @@
         <div class = "details-image" style="background-image: url({{habit.goal_image.url}})"></div>
         
         <!-- 100% badge -->
-        {% if habit.item_cost <= 0 %}
-            <div class = "completebadge">
-                <p>100 badge placeholder</p>
-            </div>
-        {% else %}
+        {% if  habit.completed_goal == True %}
+        <div class = "completebadge">
+            <p>100 badge placeholder</p>
+        </div>
 
+    {% endif %}
+
+        <!-- 25% -->
+        {% if  habit.quarter_goal == True %}
+        <div>
+            <p>25 badge placeholder</p>
+        </div>
+  
         {% endif %}
+
+
+      <!-- 50 -->
+      {% if  habit.half_goal == True %}
+      <div>
+          <p>50 badge placeholder</p>
+      </div>
+
+      {% endif %}
+
+      <!-- 75 -->
+      {% if  habit.three_quarter_goal == True %}
+      <div>
+          <p>75 badge placeholder</p>
+      </div>
+
+      {% endif %}
+
+   
+
 
     
 

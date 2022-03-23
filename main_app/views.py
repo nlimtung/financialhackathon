@@ -64,6 +64,28 @@ def habits_update (request, pk):
   new_cost = purchase_cost - habit_cost
   habit = Habit.objects.get(pk=pk)
 
+  badgepercent =  new_cost/habit.initial_item_cost
+  
+  # quarter mark
+  if badgepercent <=0.25:
+    habit.quarter_goal = True
+    habit.save()
+
+  # half badge
+  if badgepercent <=0.5:
+    habit.half_goal = True
+    habit.save()
+  
+  # 3 quarter badge
+  if badgepercent <=0.75:
+    habit.three_quarter_goal = True
+    habit.save()
+  
+  
+
+
+  
+# completed 
   if new_cost <= 0:
     habit.item_cost = 0
     habit.completed_goal = True
@@ -75,9 +97,7 @@ def habits_update (request, pk):
 
   return HttpResponseRedirect(reverse('detail', args=[str(pk)]))
 
-  # return render(request, 'habits/detail.html', { 'habit': habit})
 
-#change habit to profile later****
 def profile (request):
   user = request.user
   address = request.user.email
