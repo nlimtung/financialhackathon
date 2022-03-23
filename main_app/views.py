@@ -68,29 +68,34 @@ def habits_update (request, pk):
 
   badgepercent =  new_cost/habit.initial_item_cost
   
-  # quarter mark
-  if badgepercent <=0.25:
-    habit.quarter_goal = True
+# completed 
+  if new_cost <= 0:
+    habit.item_cost = 0
+    habit.completed_goal = True
     habit.save()
-
-  # half badge
-  if badgepercent <=0.5:
-    habit.half_goal = True
+  else:
+    habit.item_cost = new_cost
     habit.save()
   
   # 3 quarter badge
   if badgepercent <=0.75:
     habit.three_quarter_goal = True
     habit.save()
+
+  # half badge
+  if badgepercent <=0.5:
+    habit.half_goal = True
+    habit.save()
+  # quarter mark
+  if badgepercent <=0.25:
+    habit.quarter_goal = True
+    habit.save()
+
+
   
-  # completed 
-    if new_cost <= 0:
-      habit.item_cost = 0
-      habit.completed_goal = True
-      habit.save()
-    else:
-      habit.item_cost = new_cost
-      habit.save()
+
+  
+
   
   return HttpResponseRedirect(reverse('detail', args=[str(pk)]))
 

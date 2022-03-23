@@ -180,3 +180,8 @@ main{
     background-color: tomato;
 }
 
+.quarter_badge {
+    background-image: url ('images/quarterbadge.png');
+    height:88px;
+    width: 88px
+}
