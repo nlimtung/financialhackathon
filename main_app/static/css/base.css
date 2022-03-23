@@ -203,9 +203,8 @@ margin:auto;
 } 
 
 .quarter_badge {
-    background-image: url('images/quarterbadge.png');
+    background-image: url('images/threequarterbadge.png');
     grid-column: 1/2;
-
 
 }
 
@@ -214,7 +213,7 @@ margin:auto;
     grid-column: 2/3;
 }
 .three_quarter_badge {
-    background-image: url('images/threequarterbadge.png');
+    background-image: url( 'images/quarterbadge.png');
     grid-column: 3/4;
 
 }
