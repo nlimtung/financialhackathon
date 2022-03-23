@@ -12,34 +12,23 @@
         
         <!-- 100% badge -->
         {% if  habit.completed_goal == True %}
-        <div class = "completebadge">
-            <p>100 badge placeholder</p>
-        </div>
-
-    {% endif %}
-
-    <div class="smalbadges">
-        <!-- 25% -->
-        {% if  habit.quarter_goal == True %}
-        <div class = "quarter_badge"></div>
-
+            <div class = "completebadge"></div>
         {% endif %}
 
-
+    <div id="allsmallbadges">
+        <!-- 25% -->
+        {% if  habit.quarter_goal == True %}
+            <div id="smallbadges"class = "quarter_badge"></div>
+        {% endif %}
+        
         <!-- 50 -->
         {% if  habit.half_goal == True %}
-        <div>
-            <p>50 badge placeholder</p>
-        </div>
-
+            <div id="smallbadges"class = "half_badge"></div>
         {% endif %}
 
         <!-- 75 -->
         {% if  habit.three_quarter_goal == True %}
-        <div>
-            <p>75 badge placeholder</p>
-        </div>
-
+            <div id="smallbadges"class = "three_quarter_badge"></div>
         {% endif %}
     </div>
 
