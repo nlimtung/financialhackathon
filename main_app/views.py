@@ -44,7 +44,7 @@ class HabitDelete(LoginRequiredMixin, DeleteView):
 
 @login_required
 def habits_index(request):
-  habits = Habit.objects.all()
+  habits = Habit.objects.filter( user = request.user)
   return render(request, 'habits/index.html', { 'habits': habits })
 
 def habits_detail(request, habit_id):
@@ -83,7 +83,7 @@ def profile (request):
   return render  (request, "habits/profile.html", {"user" : user})  
 
 def completed(request):
-  completed_habits = Habit.objects.filter(completed_goal=True)
+  completed_habits = Habit.objects.filter( user = request.user).filter(completed_goal=True)
   return render(request, 'habits/completed.html', { 'completed_habits': completed_habits})
 
 
