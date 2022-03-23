@@ -34,6 +34,7 @@ class HabitCreate(CreateView):
   fields = ['habit_item', 'habit_cost', 'item', 'item_cost']
   def form_valid(self, form):
     form.instance.user = self.request.user  
+    form.instance.initial_item_cost = form.instance.item_cost
     return super().form_valid(form)
   success_url = '/habits/index'
 
@@ -58,7 +59,7 @@ def habits_update (request, pk):
 
   new_cost = purchase_cost - habit_cost
   habit = Habit.objects.get(pk=pk)
-  if habit.item_cost <0:
+  if habit.item_cost <= 0:
     habit.item_cost == 0
     habit.save()
 
