@@ -6,7 +6,17 @@
   
         <h1>{{ habit.item }}</h1>
         <div class = "details-image" style="background-image: url({{habit.goal_image.url}})"></div>
+        
+        <!-- 100% badge -->
+        {% if habit.item_cost <= 0 %}
+            <div class = "completebadge">
+                <p>100 badge placeholder</p>
+            </div>
+        {% else %}
 
+        {% endif %}
+
+    
 
         <table>
             <tr>
