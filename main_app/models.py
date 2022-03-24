@@ -11,6 +11,7 @@ class Habit (models.Model):
     item_cost = models.FloatField("ITEM COST")
     initial_item_cost = models.FloatField("initial cost", null=True)
     total_saved = models.FloatField("total saved", default = 0)
+    click_count = models.IntegerField("click count", default = 0)
 
 
     random_message = models.CharField(max_length = 220)
