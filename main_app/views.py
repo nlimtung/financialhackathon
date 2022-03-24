@@ -106,10 +106,15 @@ def habits_update (request, pk):
   purchase_cost = (purchase_query[0]['item_cost'])
   habit_query =  Habit.objects.filter(pk= pk).values('habit_cost')
   habit_cost = (habit_query[0]['habit_cost'])
+
   
 
   new_cost = purchase_cost - habit_cost
   habit = Habit.objects.get(pk=pk)
+  previous_saved_amount = habit.total_saved
+  new_saved_amount = previous_saved_amount + habit_cost
+  
+
   random_message = (random.choice(messages))
   print(random_message)
 
@@ -121,7 +126,9 @@ def habits_update (request, pk):
     habit.save()
   else:
     habit.item_cost = new_cost
+    habit.total_saved = new_saved_amount
     habit.random_message = random_message
+    print(habit.total_saved)
 
     habit.save()
 
