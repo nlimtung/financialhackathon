@@ -2,9 +2,16 @@ main {
     font-family: 'Fira Sans Condensed', sans-serif;
 }
 
+.container {
+    margin:0px;
+    height: auto;
+}
+
 h1 {
     text-align: center;
     font-family: 'Fira Sans Condensed', sans-serif;
+    font-weight: 900;
+
 }
 
 p {
@@ -308,5 +315,10 @@ table {
 span {    
     color: #01C895;
 
-
+}
+/* confirmdelete page */
+.header-text {
+    padding: 0 30px 0 30px;
+    text-align: center;
+    padding-bottom: 20px;
 }
