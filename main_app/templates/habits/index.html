@@ -11,8 +11,27 @@
             <li>${{ habit.item_cost }}</li>
             <li>Until Goal</li>
         </div>
+
         </a>
-    </div>    
+    </div>   
+    <div id="allsmallbadges-index">
+        <!-- 25% -->
+        {% if  habit.quarter_goal == True %}
+            <div id="smallbadges-index"class = "quarter_badge"></div>
+        {% endif %}
+        
+        <!-- 50 -->
+        {% if  habit.half_goal == True %}
+            <div id="smallbadges-index"class = "half_badge"></div>
+        {% endif %}
+
+        <!-- 75 -->
+        {% if  habit.three_quarter_goal == True %}
+            <div id="smallbadges-index"class = "three_quarter_badge"></div>
+        {% endif %}
+    
+        <br/>
+    </div> 
     {% endfor %}
 </div>
 
