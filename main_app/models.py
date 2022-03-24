@@ -10,12 +10,23 @@ class Habit (models.Model):
     item = models.CharField(verbose_name=u"NAME", max_length = 50)
     item_cost = models.FloatField("ITEM COST")
     initial_item_cost = models.FloatField("initial cost", null=True)
+    total_saved = models.FloatField("total saved", default = 0)
+    click_count = models.IntegerField("click count", default = 0)
+
 
     random_message = models.CharField(max_length = 220)
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    
+
     completed_goal = models.BooleanField(default= False)
+    ninety_goal =  models.BooleanField(default= False)
+    eighty_goal =  models.BooleanField(default= False)
+    seventy_goal =  models.BooleanField(default= False)
+    sixty_goal =  models.BooleanField(default= False)
+    forty_goal =  models.BooleanField(default= False)
+    thirty_goal =  models.BooleanField(default= False)
+    twenty_goal =  models.BooleanField(default= False)
+    ten_goal =  models.BooleanField(default= False)
     half_goal =  models.BooleanField(default= False)
     quarter_goal = models.BooleanField(default= False)
     three_quarter_goal = models.BooleanField(default= False)

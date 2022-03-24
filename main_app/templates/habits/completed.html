@@ -1,33 +1,41 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class = "index-page">
+<div class = "completed-page">
     <h1>Achievements</h1>
-    {% for completed in completed_habits %}
-   
 
+    {%if completed_habits.count%}
+        {% for completed in completed_habits %}
     
-        <div>
-            <h3>{{ completed.item }}</h3>
-
-            <div class = "index-card">
-                   
-        
-                <div class=" index-photo"style="background-image: url({{habit.goal_image.url}})"> </div>
-                <div class= "index-text">
-                    <li>${{ completed.item_cost }}</li>
-                    
+            <div class = "completed-card">
+                <div class = "completed-image"style="background-image: url({{completed.goal_image.url}})"></div>
+                <div class = "completed-badge"></div>
+                <div class = "completed-text">
+                    <li>{{ completed.item }}</li>
+                    <li>${{completed.initial_item_cost}}</li>
                 </div>
-        
-                </a>
-        
-            </div>    
-     
-        </div>
-
-     
-
+            </div>
     
-    {% endfor %}
+        {% endfor %}
+
+    {%else%}
+
+        <p>
+            Hey there, <br/><br/>
+            You’re here!
+            You don’t have any goals completed yet, but thats alright!<br/>
+        </p>
+    <div class = "center">
+        <img src="/static/css/images/HuggingsFace.png"  width="72" height="72">
+    </div>
+        <p>
+            <br/>
+            Keep at it, and you’ll get there!<br/><br/>
+
+            Until then we’ll keep this clear for you.
+        </p>
+
+    {% endif %}
+
 
 </div>
 

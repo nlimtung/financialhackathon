@@ -1,17 +1,29 @@
 main {
     font-family: 'Fira Sans Condensed', sans-serif;
-
 }
 
 h1 {
     text-align: center;
     font-family: 'Fira Sans Condensed', sans-serif;
+}
+
+p {
+    text-align: center;
+}
+
+.btn-warning{
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+li {
+    list-style-type: none;
 
 }
 
-
-li {
-    list-style-type: none;
+html body{
+    margin:0;
+    height:100%;
+    background-color: white;
 
 }
 
@@ -27,14 +39,12 @@ li {
 .login-page {
     position:fixed;
     text-align: center;
-    background-color: #01C895;
     height:100%;
     width: 100%;
     top:0;
     left:0;
     bottom:0;
     right:0;
-    color: white;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -51,8 +61,8 @@ li {
     margin-top:8vh;
     margin-bottom:5vh;
 }
-.login-page .btn{
-    border-radius: 3px;
+#blue_button{
+    border-radius: 5px;
     border-color: black;
     background-color: #223AA8;
     margin-top: 5vh;
@@ -90,7 +100,9 @@ li {
 .index-photo {
     float:left;
     width:29%;
-    background-color: white;
+    background-color: lightgrey;
+    border-style: solid;
+    border-width: 1px;
     height:12vh;
     border-radius: 5px;
     background-size: cover;
@@ -113,25 +125,10 @@ li {
 
 .index-text h3{
     margin:0px;
-    position:sticky;
     padding:0px;
 
 }
 
-/* .yellow-button{
-    background-color: #F5CA49;
-    border-radius: 5px;
-    color: white;
-    border-style: none;
-    height: 4vh;
-    margin-left:outp;
-}
-
-.yellow-button a{
-    color: white;
-    padding: 10px
-
-} */
 
 .details-image  {
     margin:auto;
@@ -145,20 +142,55 @@ li {
     background-position: center;
 }
 
+.detail_button, .index_button{
+    display: grid;
+    justify-items: center;
+
+}
 
 
 nav{
-    border-top: 2px solid black;
+    
+    border-top: 1px solid #223AA8;
+    background-color: #01C895;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding-top: 10px;
+
 }
+
+.navdiv{
+    display:flex;
+    padding-left: 17%;
+    padding-right: 17%;
+    justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+}
+
+
+nav a {
+    font-size: 10px;
+    display: grid;
+
+}
+nav svg {
+    margin:auto;
+}
+
+nav p {
+    padding-top: 5px;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+
 
 main{
     padding-bottom: 80px;
-    background-color: #01C895;
 }
 
-.container{ 
-    background-color: #01C895;
-}
 
 
 
@@ -179,20 +211,21 @@ main{
 
 }
 
-
+/* BADGES ON DETAIL PAGE */
 .completebadge {
     width:120px;
     height: 120px;
     background-size: cover;
     background-position: center;
     background-image: url('images/complete.png');
-margin:auto;
+    margin:auto;
 }
 
 #allsmallbadges {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
+    
 }
 
 #smallbadges {
@@ -203,7 +236,7 @@ margin:auto;
 } 
 
 .quarter_badge {
-    background-image: url('images/threequarterbadge.png');
+    background-image: url('images/quarterbadge.png');
     grid-column: 1/2;
 
 }
@@ -213,8 +246,66 @@ margin:auto;
     grid-column: 2/3;
 }
 .three_quarter_badge {
-    background-image: url( 'images/quarterbadge.png');
+    background-image: url( 'images/threequarterbadge.png');
     grid-column: 3/4;
 
 }
 
+/* ACHIEVEMENT PAGE */
+.completed-card {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1.5fr;
+    margin-bottom: 20px;
+}
+
+.completed-badge {
+    background-image: url('images/complete.png');
+    background-size: cover;
+    background-position: center;
+    grid-column: 2/3;
+    width: 75px;
+    height: 75px;
+}
+
+.completed-image {
+    background-size: cover;
+    grid-column: 1/2;
+    width: 75px;
+    height: 75px;
+}
+
+table {
+    width: 100%;
+}
+
+
+.detail-sentence {
+    text-align: center;
+    padding-top:10px
+}
+
+#allsmallbadges-index {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+
+}
+
+#smallbadges-index {
+    height:64px;
+    width: 64px;
+    background-size: cover;
+    background-position: center;
+
+
+}
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+span {    
+    color: #01C895;
+
+
+}
