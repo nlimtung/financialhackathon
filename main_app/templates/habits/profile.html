@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1 class = "main-page_h1">Profile</h1>
+{%for profile in profiles%} 
+
+<h1 class = "main-page_h1" >Profile</h1>
 <div class = "profile">
-    <div class = "profile-image"></div>
+    <div class = "profile-image" style="background-image: url({{profile.profile_image.url}})"></div>
             <li>{{ user }}</li>
         {% if user.is_authenticated %}
             <li><a href="{% url 'logout' %}">LOG OUT</a></li>
         {% endif %}
         </ul>
         
-       {%for profile in profiles%} 
         <div>{{profile.name}}</div>
         <div>{{profile.email}}</div>
         {%endfor%}
