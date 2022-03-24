@@ -127,8 +127,9 @@ def habits_update (request, pk):
   else:
     habit.item_cost = new_cost
     habit.total_saved = new_saved_amount
+    habit.click_count = habit.click_count + 1 
     habit.random_message = random_message
-    print(habit.total_saved)
+    print(habit.click_count)
 
     habit.save()
 
