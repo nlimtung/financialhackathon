@@ -2,10 +2,10 @@ main {
     font-family: 'Fira Sans Condensed', sans-serif;
 }
 
-.container {
+/* .container {
     margin:0px;
     height: auto;
-}
+} */
 
 #bg-teal{
     background-color: rgb(93,212,181);
@@ -157,6 +157,10 @@ html body{
 
 
 .details-image  {
+    border-style: solid;
+    border-width: 1px;
+    height:12vh;
+    border-radius: 5px;
     margin:auto;
     display: flex;
     justify-content: center;
