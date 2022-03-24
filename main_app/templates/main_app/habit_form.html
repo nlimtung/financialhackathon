@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
+<div class = "addpage">
 <h1 class = "main-page_h1">Add New Goal</h1>
-<h5>Please enter your goal and its cost</h5>
+<p>Please enter the habit you want to give up in order to save for your goal</p>
   <form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <table>
@@ -10,5 +12,5 @@
     </table>
     <input type="submit" value="CONFIRM" id = blue_button class="btn">
   </form>
-
+</div>
 {% endblock %}
