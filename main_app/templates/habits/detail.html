@@ -29,10 +29,79 @@
         {% if  habit.three_quarter_goal == True %}
             <div id="smallbadges"class = "three_quarter_badge"></div>
         {% endif %}
+    
+        <br/>
     </div>
 
-   
+    <div>
+        <!--100%-->
+        {% if  habit.completed_goal == True %}
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>  
+        <!--90%--> 
+        {% elif  habit.ninety_goal == True %}
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 90%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>  
+        <!--80%--> 
+        {% elif  habit.eighty_goal == True %}
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 80%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>  
+        <!--75%--> 
+        {% elif  habit.three_quarter_goal == True %}
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 75%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>  
+        <!--70%--> 
+        {% elif  habit.seventy_goal == True %}
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 70%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <!--60%--> 
+        {% elif  habit.sixty_goal == True %}
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 60%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>  
+         <!-- 50 -->
+         {% elif  habit.half_goal == True %}
+         <div class="progress">
+             <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+         </div> 
+        <!--40%--> 
+        {% elif  habit.forty_goal == True %}
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 40%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <!--30%--> 
+        {% elif  habit.thirty_goal == True %}
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 30%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>          
+        <!-- 25% -->
+        {% elif  habit.quarter_goal == True %}
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <!--20%--> 
+        {% elif  habit.twenty_goal == True %}
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 20%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <!--10%--> 
+        {% elif  habit.ten_goal == True %}
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 10%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>    
+        {% else %}
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 1%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        {% endif %}
+        
 
+    </div>
 
     
 
@@ -73,7 +142,8 @@
         </table>
     
 
-        <a href="{% url 'habit_update' habit.id %}"> <button class = "btn btn-warning">I saved for this Today </button></a></br>
+        <a href="{% url 'habit_update' habit.id %}"> <button class = "btn btn-warning">I saved for this Today </button></a>
+        <br/>
         <a href="{% url 'habit_delete' habit.id %}" class="btn btn-danger">Abandon Goal</a>
     </div>
 
