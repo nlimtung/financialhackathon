@@ -106,6 +106,7 @@ def habits_update (request, pk):
   purchase_cost = (purchase_query[0]['item_cost'])
   habit_query =  Habit.objects.filter(pk= pk).values('habit_cost')
   habit_cost = (habit_query[0]['habit_cost'])
+  
 
   new_cost = purchase_cost - habit_cost
   habit = Habit.objects.get(pk=pk)
@@ -123,19 +124,60 @@ def habits_update (request, pk):
     habit.random_message = random_message
 
     habit.save()
+
+  #90% complete
+  if badgepercent <=.10:
+    habit.ninety_goal = True
+    habit.save()
+
+  #80% complete
+  if badgepercent <=.20:
+    habit.eighty_goal = True
+    habit.save()
   
   # 3 quarter badge
   if badgepercent <=0.75:
     habit.quarter_goal = True
     habit.save()
 
+  #70% complete
+  if badgepercent <=.30:
+    habit.seventy_goal = True
+    habit.save()
+
+  #60% complete
+  if badgepercent <=.40:
+    habit.sixty_goal = True
+    habit.save()
+
   # half badge
   if badgepercent <=0.5:
     habit.half_goal = True
     habit.save()
+
+  #40% complete
+  if badgepercent <=.60:
+    habit.forty_goal = True
+    habit.save()
+
+  #30% complete
+  if badgepercent <=.70:
+    habit.thirty_goal = True
+    habit.save()
+
   # quarter mark
   if badgepercent <=0.25:
     habit.three_quarter_goal = True
+    habit.save()
+
+  #20% complete
+  if badgepercent <=.80:
+    habit.twenty_goal = True
+    habit.save()
+
+  #10% complete
+  if badgepercent <=.90:
+    habit.ten_goal = True
     habit.save()
   return HttpResponseRedirect(reverse('detail', args=[str(pk)]), {"random_message":random_message})
 
