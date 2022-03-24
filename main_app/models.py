@@ -10,6 +10,8 @@ class Habit (models.Model):
     item = models.CharField(verbose_name=u"NAME", max_length = 50)
     item_cost = models.FloatField("ITEM COST")
     initial_item_cost = models.FloatField("initial cost", null=True)
+    total_saved = models.FloatField("total saved", default = 0)
+
 
     random_message = models.CharField(max_length = 220)
 

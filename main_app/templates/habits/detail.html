@@ -107,16 +107,7 @@
 
         <table>
             <tr>
-                <td>Total amount: </td>
-                <td>${{ habit.initial_item_cost}}</td>
-                <p>{{habit.random_message}}</p>
-            </tr>
-            <tr>
-                <th>&nbsp </th>
-                <th>&nbsp </th>
-            </tr>
-            <tr>
-                <td>Currently Giving Up: </td>
+                <td>Habit: </td>
                 <td>{{ habit.habit_item }}</td>
             </tr>
             <tr>
@@ -128,16 +119,25 @@
                 <th>&nbsp </th>
             </tr>
             <tr>
+                <th>Saved Money </th>
+                <th>${{habit.total_saved}}</th>
+            </tr>
+            <tr>
                 {% if habit.item_cost < 0 %}
 
-                <td>Amount Remaining: </td>
+                <td>Goal reached in </td>
                 <td>$0.0 </td>
 
             {% else %}
-                <td>Amount Remaining:</td>
+                <td>Goal reached in</td>
                 <td>${{ habit.item_cost }}</td>
 
             {% endif %}
+            </tr>
+            <tr>
+                <td>Total amount: </td>
+                <td>${{ habit.initial_item_cost}}</td>
+                <p>{{habit.random_message}}</p>
             </tr>
         </table>
     
