@@ -5,7 +5,10 @@ main {
 h1 {
     text-align: center;
     font-family: 'Fira Sans Condensed', sans-serif;
+}
 
+p {
+    text-align: center;
 }
 
 .btn-warning{
@@ -137,7 +140,7 @@ html body{
     background-position: center;
 }
 
-.detail_button {
+.detail_button, .index_button{
     display: grid;
     justify-items: center;
 
@@ -291,3 +294,4 @@ table {
     background-position: center;
 
 }
+

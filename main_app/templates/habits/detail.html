@@ -102,8 +102,32 @@
         
 
     </div>
+    {% if  habit.completed_goal == True %}
 
-    
+
+    <table>
+        <tr>
+            <td>Total Amount: </td>
+            <td>${{ habit.initial_item_cost}}</td>
+        </tr>
+        <tr>
+            <th>&nbsp </th>
+            <th>&nbsp </th>
+        </tr>
+        <tr>
+            <td>Habit:</td>
+            <td>{{ habit.habit_item }}</td>
+        </tr>
+        <tr>
+            <td>Habit cost:</td>
+            <td>${{ habit.habit_cost }}</td>
+        </tr>
+    </table>
+    <p class = "detail-sentence"> you've saved {{habit.click_count}} {{habit.habit_item}} </br> when you reached your {{habit.item}}</p>
+
+
+
+    {% else %}
 
         <table>
             <tr>
@@ -143,7 +167,8 @@
 
         <p class = "detail-sentence"> you've saved {{habit.click_count}} {{habit.habit_item}} </br> on your way to your {{habit.item}}</p>
 
-    
+        {% endif %}
+
 
         <div class = "detail_button">
             <a href="{% url 'habit_update' habit.id %}"> <button id = "blue_button"class="btn" >I saved for this Today </button></a> </br>

@@ -1,41 +1,57 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class = "index-page">
+
     <h1>My Goals</h1>
-    {% for habit in habits %}
-    <div class = "index-card">
-            <a href="{% url 'detail' habit.id %}">
-        <div class=" index-photo"style="background-image: url({{habit.goal_image.url}})"> </div>
-        <div class= "index-text">
-            <h3>{{ habit.item }}</h3>
-            <li>${{ habit.item_cost }}</li>
-            <li>Until Goal</li>
-        </div>
 
-        </a>
-    </div>   
-    <div id="allsmallbadges-index">
-        <!-- 25% -->
-        {% if  habit.quarter_goal == True %}
-            <div id="smallbadges-index"class = "quarter_badge"></div>
-        {% endif %}
+
+    {% if habits.count %}
+
+        {% for habit in habits %}
+
+        <div class = "index-card">
+                <a href="{% url 'detail' habit.id %}">
+            <div class=" index-photo"style="background-image: url({{habit.goal_image.url}})"> </div>
+            <div class= "index-text">
+                <h3>{{ habit.item }}</h3>
+                <li>${{ habit.item_cost }}</li>
+                <li>Until Goal</li>
+            </div>
+
+            </a>
+        </div>   
+        <div id="allsmallbadges-index">
+            <!-- 25% -->
+            {% if  habit.quarter_goal == True %}
+                <div id="smallbadges-index"class = "quarter_badge"></div>
+            {% endif %}
+            
+            <!-- 50 -->
+            {% if  habit.half_goal == True %}
+                <div id="smallbadges-index"class = "half_badge"></div>
+            {% endif %}
+
+            <!-- 75 -->
+            {% if  habit.three_quarter_goal == True %}
+                <div id="smallbadges-index"class = "three_quarter_badge"></div>
+            {% endif %}
         
-        <!-- 50 -->
-        {% if  habit.half_goal == True %}
-            <div id="smallbadges-index"class = "half_badge"></div>
-        {% endif %}
-
-        <!-- 75 -->
-        {% if  habit.three_quarter_goal == True %}
-            <div id="smallbadges-index"class = "three_quarter_badge"></div>
-        {% endif %}
-    
-        <br/>
-    </div> 
-    {% endfor %}
+            <br/>
+        </div> 
+        {% endfor %}
 </div>
 
-<a href="{% url 'habit_create' %}"><button id = "blue_button"class="btn">Add New Goal</button></a>
+{% else %}
+
+<p>Welcome to Goal Getter </br></br> Curb your spending habits and put that money towards something that really matters to you.</br></br> It isn’t easy, but we can help. </p>
+{% endif %}
+
+
+<div class = "index_button">
+    <a href="{% url 'habit_create' %}"><button id = "blue_button"class="btn">Add New Goal</button></a>
+
+
+</div>
 
 
 
