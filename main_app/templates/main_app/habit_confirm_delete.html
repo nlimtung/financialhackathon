@@ -10,7 +10,7 @@
   <form action="" method="POST">
     {% csrf_token %}
     <input type="submit" value="Yes I want to abandon my goal" class="btn btn-danger">
-    <a href="{% url 'index' %}">Cancel</a>
+    <a href="{% url 'index' %}" id = "blue_button"class="btn">Cancel</a>
   </form>
   <footer>
     <nav class="navbar fixed-bottom navbar-light bg-white">
