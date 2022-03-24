@@ -14,6 +14,13 @@ li {
 
 }
 
+html body{
+    margin:0;
+    height:100%;
+    background-color: white;
+
+}
+
 .login-page form ul {
     display:none;
 
@@ -26,14 +33,12 @@ li {
 .login-page {
     position:fixed;
     text-align: center;
-    background-color: #01C895;
     height:100%;
     width: 100%;
     top:0;
     left:0;
     bottom:0;
     right:0;
-    color: white;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -50,7 +55,7 @@ li {
     margin-top:8vh;
     margin-bottom:5vh;
 }
-.login-page .btn{
+#blue_button{
     border-radius: 3px;
     border-color: black;
     background-color: #223AA8;
@@ -112,7 +117,6 @@ li {
 
 .index-text h3{
     margin:0px;
-    position:sticky;
     padding:0px;
 
 }
@@ -130,20 +134,55 @@ li {
     background-position: center;
 }
 
+.detail_button {
+    display: grid;
+    justify-items: center;
+
+}
 
 
 nav{
-    border-top: 2px solid black;
+    
+    border-top: 1px solid #223AA8;
+    background-color: #01C895;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding-top: 10px;
+
 }
+
+.navdiv{
+    display:flex;
+    padding-left: 17%;
+    padding-right: 17%;
+    justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+}
+
+
+nav a {
+    font-size: 10px;
+    display: grid;
+
+}
+nav svg {
+    margin:auto;
+}
+
+nav p {
+    padding-top: 5px;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+
 
 main{
     padding-bottom: 80px;
-    background-color: #01C895;
 }
 
-.container{ 
-    background-color: #01C895;
-}
 
 
 
@@ -225,3 +264,6 @@ main{
     width: 75px;
     height: 75px;
 }
+
+
+
