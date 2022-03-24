@@ -4,14 +4,15 @@
 <div class = "profile">
     <div class = "profile-image"></div>
             <li>{{ user }}</li>
-            <li>{{ user.email }}</li>
-
-
-
         {% if user.is_authenticated %}
             <li><a href="{% url 'logout' %}">LOG OUT</a></li>
         {% endif %}
         </ul>
+        
+       {%for profile in profiles%} 
+        <div>{{profile.name}}</div>
+        <div>{{profile.email}}</div>
+        {%endfor%}
     </div>
 </div>
 
