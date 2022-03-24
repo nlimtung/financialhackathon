@@ -7,6 +7,11 @@ main {
     height: auto;
 }
 
+#bg-teal{
+    background-color: rgb(93,212,181);
+    color: white;
+}
+
 h1 {
     text-align: center;
     font-family: 'Fira Sans Condensed', sans-serif;
