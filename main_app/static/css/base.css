@@ -294,4 +294,8 @@ table {
     background-position: center;
 
 }
+.center {
+    display: flex;
+    justify-content: center;
+}
 
