@@ -48,7 +48,7 @@ class HabitCreate(LoginRequiredMixin, CreateView):
 
 class ProfileCreate(LoginRequiredMixin, CreateView):
   model = Profile
-  fields = ['name', 'lastname', 'email']
+  fields = ['name', 'lastname', 'email', 'profile_image']
   def form_valid(self, form):
     form.instance.user = self.request.user  
     return super().form_valid(form)

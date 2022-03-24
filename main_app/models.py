@@ -42,6 +42,7 @@ class Profile(models.Model):
     lastname = models.CharField(verbose_name=u"Last Name", max_length = 50, )
     email = models.CharField(verbose_name=u"Email", max_length = 50, )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    profile_image = models.ImageField(upload_to='businesscollector/', null = True)
 
     def get_absolute_url(self):
         return reverse('profile', kwargs={'profile_id': self.id})
