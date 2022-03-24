@@ -172,6 +172,7 @@ nav{
 
 nav a {
     font-size: 10px;
+    /* color:white; */
     display: grid;
 
 }
