@@ -2,11 +2,18 @@ from unicodedata import decimal
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django.utils.safestring import mark_safe
+
 # Create your models here.
 
 class Habit (models.Model):
     habit_item = models.CharField(verbose_name=u"Habit", max_length = 50, )
-    habit_cost = models.FloatField("Cost per use")
+    habit_cost = models.FloatField("Cost per use", 
+          help_text = mark_safe((
+            '<p> </br>Please enter your goal and its cost</p>'
+        ))
+    
+    )
     item = models.CharField(verbose_name=u"Goal", max_length = 50)
     item_cost = models.FloatField("Cost")
     initial_item_cost = models.FloatField("initial cost", null=True)
