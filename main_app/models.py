@@ -37,8 +37,14 @@ class Habit (models.Model):
     def get_absolute_url(self):
         return reverse('detail', kwargs={'habit_id': self.id})
 
+class Profile(models.Model):
+    name = models.CharField(verbose_name=u"Name", max_length = 50, )
+    lastname = models.CharField(verbose_name=u"Last Name", max_length = 50, )
+    email = models.CharField(verbose_name=u"Email", max_length = 50, )
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-
+    def get_absolute_url(self):
+        return reverse('profile', kwargs={'profile_id': self.id})
 
 
 
