@@ -220,6 +220,7 @@ main{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
+    
 }
 
 #smallbadges {
@@ -276,4 +277,17 @@ table {
 .detail-sentence {
     text-align: center;
     padding-top:10px
+}
+
+#allsmallbadges-index {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+#smallbadges-index {
+    height:64px;
+    width: 64px;
+    background-size: cover;
+    background-position: center;
+
 }
