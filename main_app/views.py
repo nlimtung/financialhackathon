@@ -206,7 +206,7 @@ def profile (request):
 class ProfileUpdate(LoginRequiredMixin,UpdateView):
   model = Profile
   fields = ['name', 'lastname', 'email', 'profile_image'] 
-  success_url = '/habits/index'
+  success_url = '/profile'
 
 @login_required
 def completed(request):
