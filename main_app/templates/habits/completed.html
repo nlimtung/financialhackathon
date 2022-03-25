@@ -29,8 +29,10 @@
 
     {%if completed_habits.count%}
         {% for completed in completed_habits %}
-    
+                    <a href="{% url 'detail' completed.id %}">
+
             <div class = "completed-card">
+
                 <div class = "completed-image"style="background-image: url({{completed.goal_image.url}})"></div>
                 <div class = "completed-badge"></div>
                 <div class = "completed-text">
@@ -38,6 +40,7 @@
                     <li>${{completed.initial_item_cost}}</li>
                 </div>
             </div>
+        </a>
     
         {% endfor %}
 
@@ -67,7 +70,7 @@
 
 <footer>
     <nav>
-      <div class="navdiv">
+      <div class="navdiv" id = "navbar-completed">
         <a href="{% url 'index' %}" class="text-dark">
           <img src="/static/css/images/Goals.png"  >
         </a>
