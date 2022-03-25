@@ -23,7 +23,7 @@ Check out the Goal Getter Application here: [Goal Getter](https://goal-getter-ha
 
 ## Features
 #### Login and Sign Up using Django's built in authentication
-<img src="/main_app/static/css/images/login.png" width="174" height="377">
+<img src="/main_app/static/css/images/login.png" width="348" height="754">
 
 #### Upload a photo of your goal purchase to remind you of your "why"
 ![Create Profile](/main_app/static/css/images/makeprofile.png)
