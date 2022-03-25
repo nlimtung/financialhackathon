@@ -388,7 +388,8 @@ span {
 }
 
 .profile-image  {
-    
+    border-style: 2px solid;
+    border:1px solid black; 
     background-color: lightgrey;
 
 }
