@@ -26,19 +26,19 @@ Check out the Goal Getter Application here: [Goal Getter](https://goal-getter-ha
 <img src="/main_app/static/css/images/login.png" width="348" height="754">
 
 #### Upload a photo of your goal purchase to remind you of your "why"
-![Create Profile](/main_app/static/css/images/makeprofile.png)
+<img src="/main_app/static/css/images/makeprofile.png" width="348" height="754">
 
 #### Upload a photo of your goal purchase to remind you of your "why"
-![Add Goal](/main_app/static/css/images/addgoal.png)
+<img src="/main_app/static/css/images/addgoal.png" width="348" height="754">
 
 #### Goal getters are rewarded with badges for reaching milestones!
-![Badges](/main_app/static/css/images/badges.png)
+<img src="/main_app/static/css/images/badges.png" width="348" height="754">
 
 ##### Your reached goals can will be archived so you can see how many goals you've reached!
-![Completed](/main_app/static/css/images/completedachievements.png)
+<img src="/main_app/static/css/images/completedachievements.png" width="348" height="754">
 
 #### A progress bar will tell you how close you are to reaching your goal!
-![Progress Bar](/main_app/static/css/images/progressbar.png)
+<img src="/main_app/static/css/images/progressbar.png" width="348" height="754">
 
 ***
 
