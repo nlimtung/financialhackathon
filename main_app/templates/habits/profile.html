@@ -30,17 +30,29 @@
         <div class = "profile">
             <div class = "profile-image" style="background-image: url({{profile.profile_image.url}})"></div>
                     <li>{{ user }}</li>
+                
                 {% if user.is_authenticated %}
-                    <li><a href="{% url 'logout' %}">LOG OUT</a></li>
+                    <li><a href="{% url 'logout' %}">Log out</a></li>
                 {% endif %}
                 </ul>
+                </br>
+                    <div class="profile-info">{{profile.name}}</div>
+                </br>
+
+                    <div class="profile-info">{{profile.lastname}}</div>
+                </br>
+                </br>
+
+                    <div class="profile-info">{{profile.email}}</div>
                 
-                <div>{{profile.name}}</div>
-                <div>{{profile.email}}</div>
-                {%endfor%}
+                    <a href="{% url 'profile_update' profile.id %}" class = "btn" id = "blue_button">Edit</a>
+
+                    {%endfor%}
                 <br/>
             </div>
         </div>
+
+        
     </main>
 
     <footer>
