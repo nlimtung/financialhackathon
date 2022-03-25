@@ -147,6 +147,7 @@ html body{
     border-radius: 5px;
     background-size: cover;
     background-position: center;
+    background-color: lightgrey;
 
 }
 .index-text {
@@ -325,6 +326,7 @@ main{
     grid-column: 1/2;
     width: 75px;
     height: 75px;
+    background-color: lightgrey;
 }
 
 table {

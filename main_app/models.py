@@ -37,7 +37,7 @@ class Habit (models.Model):
     half_goal =  models.BooleanField(default= False)
     quarter_goal = models.BooleanField(default= False)
     three_quarter_goal = models.BooleanField(default= False)
-    goal_image = models.ImageField(upload_to='businesscollector/')
+    goal_image = models.ImageField(upload_to='businesscollector/', default='default.png')
 
     def __str__(self):
         return self.item
