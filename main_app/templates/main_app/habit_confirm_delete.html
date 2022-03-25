@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h1 class = 'main-page_h1' class="fw-bold">Abandon Goal</h1>
+  <h1 class = 'main-page_h1' class="fw-bold">Remove Goal</h1>
 
   <p class="header-text">Are you sure you want to abandon goal? This action cannot be undone <span class="black-text"></span>
   </br> </br>
@@ -10,7 +10,7 @@
   <form action="" method="POST">
     {% csrf_token %}
     <div class = "detail_button">
-      <input type="submit" value="Yes I want to abandon my goal" class="btn btn-danger">
+      <input type="submit" value="Yes I want to remove my goal" class="btn btn-danger">
       <a href="{% url 'index' %}" id = "blue_button"class="btn">No, I'll keep this goal</a>
     </div>
   </form>
