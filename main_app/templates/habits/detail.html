@@ -123,7 +123,7 @@
             <td>${{ habit.habit_cost }}</td>
         </tr>
     </table>
-    <p class = "detail-sentence"> You've saved <span>{{habit.click_count}}</span> {{habit.habit_item}}s </br> when you reached your {{habit.item}}</p>
+    <p class = "detail-sentence"> You saved <span>{{habit.click_count}}</span> {{habit.habit_item}}s </br> when you reached your {{habit.item}}</p>
 
 
 
@@ -167,13 +167,15 @@
 
         <p class = "detail-sentence"> You've saved <span>{{habit.click_count}}</span> {{habit.habit_item}}s </br> on your way to your {{habit.item}}</p>
 
-        {% endif %}
-
-
         <div class = "detail_button">
             <a href="{% url 'habit_update' habit.id %}"> <button id = "blue_button"class="btn" >I saved for this Today </button></a> </br>
             <a href="{% url 'habit_delete' habit.id %}" class="btn btn-danger">Remove Goal</a>
         </div>
+
+        {% endif %}
+
+
+
     </div>
 
 
