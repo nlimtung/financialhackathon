@@ -204,7 +204,17 @@ nav{
     width: 100%;
     padding-top: 10px;
 
+
 }
+
+#navbar-completed {
+    display:flex;
+    padding-right: 17%;
+    justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+}
+
 
 .navdiv{
     display:flex;
@@ -401,6 +411,13 @@ span {
     text-align: center;
 }
 
+.completed-text{
+    color: black;
+    text-decoration: none;
+}
+
+
+
 #edit_button{
     border-radius: 5px;
     border-color: black;
@@ -408,3 +425,4 @@ span {
     margin-bottom: 2vh;
     color: white;
 }
+
