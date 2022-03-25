@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 
-from django.views.generic.edit import CreateView, DeleteView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 from .models import Profile
 from .models import Habit
@@ -202,6 +202,11 @@ def profile (request):
   user = request.user
   profiles = Profile.objects.filter( user = request.user)
   return render  (request, "habits/profile.html", {"user" : user, 'profiles':profiles})  
+
+class ProfileUpdate(LoginRequiredMixin,UpdateView):
+  model = Profile
+  fields = ['name', 'lastname', 'email', 'profile_image'] 
+  success_url = '/habits/index'
 
 @login_required
 def completed(request):
