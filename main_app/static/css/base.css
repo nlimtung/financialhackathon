@@ -73,6 +73,7 @@ html body{
     bottom:0;
     right:0;
     font-family: 'Fira Sans Condensed', sans-serif;
+    padding-bottom: 50px ;
 
 }
 
@@ -398,4 +399,12 @@ span {
 
 .edit{
     text-align: center;
+}
+
+#edit_button{
+    border-radius: 5px;
+    border-color: black;
+    background-color: #223AA8;
+    margin-bottom: 2vh;
+    color: white;
 }
