@@ -23,22 +23,22 @@ Check out the Goal Getter Application here: [Goal Getter](https://goal-getter-ha
 
 ## Features
 #### Login and Sign Up using Django's built in authentication
-![Login](login.png)
+![Login](static/css/images/login.png)
 
 #### Upload a photo of your goal purchase to remind you of your "why"
-![Create Profile](makeprofile.png)
+![Create Profile](static/css/images/makeprofile.png)
 
 #### Upload a photo of your goal purchase to remind you of your "why"
-![Add Goal](addgoal.png)
+![Add Goal](static/css/images/addgoal.png)
 
 #### Goal getters are rewarded with badges for reaching milestones!
-![Badges](badges.png)
+![Badges](static/css/images/badges.png)
 
 ##### Your reached goals can will be archived so you can see how many goals you've reached!
-![Completed](completedachievements.png)
+![Completed](static/css/images/completedachievements.png)
 
 #### A progress bar will tell you how close you are to reaching your goal!
-![Progress Bar](progressbar.png)
+![Progress Bar](static/css/images/progressbar.png)
 
 ***
 
