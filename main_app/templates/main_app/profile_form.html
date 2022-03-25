@@ -16,16 +16,25 @@
 <body>
   <div class = "login-page">
     <h1>The Goal Getter</h1>
-    <h3>Welcome!</h3>
-    <br>
+
+    {% if object %}
+    <h3>Edit Profile:</h3>
+  {% else %}
+    <h3>Make a Profile</h3>
+  {% endif %}
+
+
 
     {% if error_message %}<p class="red-text">{{ error_message }}</p>{% endif %}
-    <form method="post" action="{% url 'signup' %}">
+    <form method="post" action=""enctype="multipart/form-data">
       {% csrf_token %}
       {{ form.as_p }}
-      <input type="submit" id = "blue_button" class="btn" value="Continue">
+
+
+      <input type="submit" id = 'blue_button' class="btn" value="Submit">
+    
+    
     </form>
-    <p>Already have an account? <a href="{% url 'login' %}">Sign In</a></p>
     </div>
 </body>
 </html>

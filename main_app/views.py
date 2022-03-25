@@ -7,9 +7,9 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 
-from django.views.generic.edit import CreateView, DeleteView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
-
+from .models import Profile
 from .models import Habit
 from .models import User
 import uuid
@@ -30,7 +30,7 @@ def signup(request):
     if form.is_valid():
       user = form.save()
       login(request, user)
-      return redirect('index')
+      return redirect('profile_create')
     else:
       error_message = 'Invalid sign up - try again'
   form = UserCreationForm()
@@ -43,6 +43,14 @@ class HabitCreate(LoginRequiredMixin, CreateView):
   def form_valid(self, form):
     form.instance.user = self.request.user  
     form.instance.initial_item_cost = form.instance.item_cost
+    return super().form_valid(form)
+  success_url = '/habits/index'
+
+class ProfileCreate(LoginRequiredMixin, CreateView):
+  model = Profile
+  fields = ['name', 'lastname', 'email', 'profile_image']
+  def form_valid(self, form):
+    form.instance.user = self.request.user  
     return super().form_valid(form)
   success_url = '/habits/index'
 
@@ -192,8 +200,13 @@ def habits_update (request, pk):
 @login_required
 def profile (request):
   user = request.user
-  address = request.user.email
-  return render  (request, "habits/profile.html", {"user" : user})  
+  profiles = Profile.objects.filter( user = request.user)
+  return render  (request, "habits/profile.html", {"user" : user, 'profiles':profiles})  
+
+class ProfileUpdate(LoginRequiredMixin,UpdateView):
+  model = Profile
+  fields = ['name', 'lastname', 'email', 'profile_image'] 
+  success_url = '/profile'
 
 @login_required
 def completed(request):

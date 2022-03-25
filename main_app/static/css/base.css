@@ -1,10 +1,37 @@
+
+
 main {
     font-family: 'Fira Sans Condensed', sans-serif;
+}
+
+/* .container {
+    margin:0px;
+    height: auto;
+} */
+
+#bg-teal{
+    background-color: rgb(93,212,181);
+    color: white;
 }
 
 h1 {
     text-align: center;
     font-family: 'Fira Sans Condensed', sans-serif;
+    font-weight: 900;
+}
+
+.main-page_h1  {
+    border-bottom: 1px solid black;
+    width: 100%;
+}
+
+#allsmallbadges-index, .completed-card {
+    border-bottom: 1px solid lightgrey;
+
+}
+
+.completed-card {
+    padding-bottom: 10px;;
 }
 
 p {
@@ -45,8 +72,21 @@ html body{
     left:0;
     bottom:0;
     right:0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Fira Sans Condensed', sans-serif;
+
 }
+
+.addpage {
+    line-height: 1;
+
+}
+
+.addpage form input {
+    width: 95%;
+    padding:0;
+
+}
+
 
 .login-page form input {
     width: 95%;
@@ -131,6 +171,10 @@ html body{
 
 
 .details-image  {
+    border-style: solid;
+    border-width: 1px;
+    height:12vh;
+    border-radius: 5px;
     margin:auto;
     display: flex;
     justify-content: center;
@@ -172,6 +216,7 @@ nav{
 
 nav a {
     font-size: 10px;
+    /* color:white; */
     display: grid;
 
 }
@@ -200,6 +245,8 @@ main{
     border-radius: 100%;
     width:100px;
     margin:auto;
+    background-size: cover;
+    background-position: center;
     
 }
 
@@ -269,6 +316,12 @@ main{
 
 .completed-image {
     background-size: cover;
+    background-position: center;
+    border-style: solid;
+    border-width: 1px;
+    height:12vh;
+    border-radius: 5px;
+    background-size: cover;
     grid-column: 1/2;
     width: 75px;
     height: 75px;
@@ -307,5 +360,35 @@ table {
 span {    
     color: #01C895;
 
+}
+/* confirmdelete page */
+.header-text {
+    padding: 0 30px 0 30px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.detail table {
+    border-bottom: 1px solid lightgrey;
+    border-top: 1px solid lightgrey;
+
+}
+
+#id_profile_image {
+    border-style: none;
+    padding-top: 10px;
+}
+
+.profile-info{
+    border-style: solid;
+    border-color: lightgrey;
+    border-radius: 1px;
+    padding:10px;
+    font-size: 18px;
+}
+
+.profile-image  {
+    
+    background-color: lightgrey;
 
 }
