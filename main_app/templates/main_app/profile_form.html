@@ -17,7 +17,11 @@
   <div class = "login-page">
     <h1>The Goal Getter</h1>
 
-  
+    {% if object %}
+    <h3>Edit Profile:</h3>
+  {% else %}
+    <h3>Make a Profile</h3>
+  {% endif %}
 
 
 
