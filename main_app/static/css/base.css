@@ -197,8 +197,8 @@ html body{
 
 nav{
     
-    border-top: 1px solid #223AA8;
-    background-color: #01C895;
+    border-top: 3px solid #0198c8;;
+    background-color: white;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -347,7 +347,7 @@ table {
 
 .detail-sentence {
     text-align: center;
-    padding-top:10px
+    padding-top:10px;
 }
 
 #allsmallbadges-index {
